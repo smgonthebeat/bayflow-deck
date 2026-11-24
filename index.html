@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bayflow Lab · SPIN deck</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="deck.css?v=1124c">
+<link rel="stylesheet" href="css/slides.css?v=1124c">
+<script type="importmap">
+{ "imports": { "three": "./vendor/three/build/three.module.js", "three/addons/": "./vendor/three/addons/" } }
+</script>
+<script src="vendor/gsap/gsap.min.js"></script>
+<script type="module" src="vendor/kubai-icons/cdn/element.js"></script>
+</head>
+<body>
+<main id="deck">
+
+<!-- 1 · Cover (template, unchanged) -->
+<section class="deck-stage" data-slide="1" aria-label="Cover">
+  <div class="deck-cover">
+    <div class="deck-cover__lockup">
+      <img src="assets/app-icon-1024.png" alt="">
+      <h1 class="deck-cover__name">Bayflow Lab</h1>
+    </div>
+    <p class="deck-cover__tagline">Make Trade Flow</p>
+    <p class="deck-cover__desc">A self-improving AI Go-To-Market (sales and marketing) agent for small and mid-sized exporters in Hong Kong and the Greater Bay Area.</p>
+    <p class="deck-cover__who">Sheng Gao · Founder · smggaosheng@gmail.com</p>
+  </div>
+</section>
+
+<!-- 2 · Problem: the reel works, the selling is still manual -->
+<section class="deck-stage deck-stage--content s2" data-slide="2" aria-label="Problem">
+  <h2 class="slide-title">The videos bring buyers.<br>The orders still depend on a few people.</h2>
+  <div class="slide-no">02</div>
+
+  <ul class="facts">
+    <li class="fact fact--good"><span class="fact__badge"><kubai-icon name="video" size="34" color="#5393FF"></kubai-icon></span><p>Made with AI. No ad spend.</p></li>
+    <li class="fact"><span class="fact__badge"><kubai-icon name="users" size="34" color="#5393FF"></kubai-icon></span><p>4 people sell. Every quote typed by hand.</p></li>
+    <li class="fact"><span class="fact__badge"><kubai-icon name="brain" size="34" color="#5393FF"></kubai-icon></span><p>The best salesperson's know-how stays in one head.</p></li>
+  </ul>
+  <p class="s2__note">My family's factory in Shenzhen (a related party)</p>
+
+  <canvas class="phone-canvas" id="phone-02"></canvas>
+  <div class="pings" aria-hidden="true">
+    <kubai-icon name="messages" size="44" color="#5393FF"></kubai-icon>
+    <kubai-icon name="message-circle" size="34" color="#5393FF"></kubai-icon>
+    <kubai-icon name="messages" size="30" color="#5393FF"></kubai-icon>
+    <kubai-icon name="message-circle" size="40" color="#5393FF"></kubai-icon>
+    <kubai-icon name="messages" size="36" color="#5393FF"></kubai-icon>
+  </div>
+</section>
+
+<!-- 3 · Approach: three layers, built from the bottom up -->
+<section class="deck-stage deck-stage--content s3" data-slide="3" aria-label="Approach">
+  <h2 class="slide-title">Start from the business that already works, then add AI.</h2>
+  <div class="slide-no">03</div>
+
+  <svg class="s3__lines" viewBox="0 0 1280 720" aria-hidden="true"></svg>
+
+  <div class="stack">
+    <div class="layer layer--base" data-level="0"><div class="slab"></div>
+      <span class="pin" style="left:-90px; top:34px"><kubai-icon name="brain" size="30" color="#5393FF"></kubai-icon></span>
+      <span class="pin" style="left:0; top:52px"><kubai-icon name="messages" size="30" color="#5393FF"></kubai-icon></span>
+      <span class="pin" style="left:90px; top:34px"><kubai-icon name="smartphone" size="30" color="#5393FF"></kubai-icon></span>
+    </div>
+    <div class="cast" data-level="1"><b></b></div>
+    <div class="layer layer--agent" data-level="1"><div class="slab"></div>
+      <span class="pin pin--lg" style="left:0; top:38px"><kubai-icon name="bot-sparkle" size="40" color="#5393FF"></kubai-icon></span>
+    </div>
+    <div class="cast" data-level="2"><b></b></div>
+    <div class="layer layer--result" data-level="2"><div class="slab"></div>
+      <span class="pin pin--lg" style="left:0; top:-4px"><kubai-icon name="trending-up" size="40" color="#5393FF"></kubai-icon></span>
+    </div>
+  </div>
+
+  <div class="tier tier--result" data-level="2">
+    <h3>The same team sells more</h3>
+    <p>Little to learn: it lives in the tools they use</p>
+  </div>
+  <div class="tier tier--agent" data-level="1">
+    <h3>Bayflow's agent, added on top</h3>
+    <p>Drafts replies and quotes, asks a person to approve</p>
+  </div>
+  <div class="tier tier--base" data-level="0">
+    <h3>Already in the company</h3>
+    <ul>
+      <li><kubai-icon name="brain" size="26" color="#5393FF"></kubai-icon>The owner's know-how</li>
+      <li><kubai-icon name="messages" size="26" color="#5393FF"></kubai-icon>The best salesperson's replies</li>
+      <li><kubai-icon name="smartphone" size="26" color="#5393FF"></kubai-icon>The tools the team uses</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 4 · One flow -->
+<section class="deck-stage deck-stage--content s4" data-slide="4" aria-label="One flow">
+  <h2 class="slide-title">One flow: content, buyers, orders, payment.</h2>
+  <div class="slide-no">04</div>
+  <canvas class="flow-canvas" id="flow-04"></canvas>
+
+  <div class="station station--next" data-station="content">
+    <div class="station__stem"></div>
+    <div class="station__badge"><kubai-icon name="video" size="38"></kubai-icon></div>
+    <div class="station__label">
+      <p class="station__name">Content</p>
+      <p class="station__role">Marketing agent</p>
+      <p class="station__status"><i></i>Next</p>
+    </div>
+  </div>
+  <div class="station station--run" data-station="buyers">
+    <div class="station__stem"></div>
+    <div class="station__badge"><kubai-icon name="messages" size="38"></kubai-icon></div>
+    <div class="station__label">
+      <p class="station__name">Buyers</p>
+      <p class="station__role">Sales agent</p>
+      <p class="station__status"><i></i>Running today</p>
+    </div>
+  </div>
+  <div class="station station--run" data-station="orders">
+    <div class="station__stem"></div>
+    <div class="station__badge"><kubai-icon name="contract" size="38"></kubai-icon></div>
+    <div class="station__label">
+      <p class="station__name">Orders</p>
+      <p class="station__role">Approval by a person beyond the range</p>
+      <p class="station__status"><i></i>Running today</p>
+    </div>
+  </div>
+  <div class="station station--later" data-station="payment">
+    <div class="station__stem"></div>
+    <div class="station__badge"><kubai-icon name="currency-dollar" size="38"></kubai-icon></div>
+    <div class="station__label">
+      <p class="station__name">Payment</p>
+      <p class="station__role">Documents after the deal</p>
+      <p class="station__status"><i></i>Later</p>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · Product today: the real screenshot in depth, the part being discussed lifted out of it -->
+<section class="deck-stage deck-stage--content s5" data-slide="5" data-steps="4" data-auto="3.2,0,0" aria-label="Product today">
+  <h2 class="slide-title">Today, on real WhatsApp: the agent translates, and drafts every reply and quote.</h2>
+  <div class="slide-no">05</div>
+  <canvas class="flow-canvas" id="flow-05"></canvas>
+
+  <div class="scene">
+    <div class="shot">
+      <div class="shot__pan">
+        <img class="shot__img" data-shot="a" src="assets/shots/p5-A2-would-auto-send_chat.png" alt="">
+        <img class="shot__img" data-shot="b" src="assets/shots/p5-B1-quote-card_chat.png" alt="">
+        <img class="shot__img" data-shot="c" src="assets/shots/p5-C2-tab-to-english_chat.png" alt="">
+        <div class="shot__ring"></div>
+      </div>
+      <div class="shot__veil"></div>
+    </div>
+  </div>
+  <span class="s5__demo">Demo data</span>
+
+  <div class="pop">
+    <div class="pop__pan">
+      <img class="pop__img" data-shot="a" src="assets/shots/p5-A2-would-auto-send_chat.png" alt="">
+      <img class="pop__img" data-shot="b" src="assets/shots/p5-B1-quote-card_chat.png" alt="">
+      <img class="pop__img" data-shot="c1" src="assets/shots/p5-C1-typed-chinese_chat.png" alt="">
+      <img class="pop__img" data-shot="c" src="assets/shots/p5-C2-tab-to-english_chat.png" alt="">
+      <i class="pop__cell"></i><i class="pop__cell"></i><i class="pop__cell"></i><i class="pop__cell"></i><i class="pop__cell"></i>
+    </div>
+  </div>
+
+  <div class="says">
+    <div class="say"><b>1</b><p class="say__t">Every message, translated</p><p class="say__d">under the original</p></div>
+    <div class="say"><b>2</b><p class="say__t">Standard questions</p><p class="say__d">a reply drafted from the company's documents</p></div>
+    <div class="say"><b>3</b><p class="say__t">The quote</p><p class="say__d">drafted by the model, every number filled in by code</p></div>
+    <div class="say"><b>4</b><p class="say__t">Type Chinese, press <kbd>Tab</kbd></p><p class="say__d">the buyer's language</p></div>
+  </div>
+
+  <div class="rail"><b>1</b><b>2</b><b>3</b><b>4</b></div>
+
+  <div class="langs">
+    <p class="langs__n">36</p>
+    <p class="langs__t">languages,<br>both ways</p>
+    <div class="langs__stack">
+      <img src="assets/shots/p5-lang-es.png" alt=""><img src="assets/shots/p5-lang-ja.png" alt=""><img src="assets/shots/p5-lang-ko.png" alt="">
+    </div>
+  </div>
+</section>
+
+<!-- 6 · Approval: beyond the salesperson's range, a person approves -->
+<section class="deck-stage deck-stage--content s6" data-slide="6" data-steps="4" data-auto="2.4,3.6,0" aria-label="Approval">
+  <h2 class="slide-title">Beyond each salesperson's range, a person approves.</h2>
+  <div class="slide-no">06</div>
+
+  <div class="win win--wa">
+    <p class="win__tag">Salesperson's WhatsApp</p>
+    <div class="win__body">
+      <div class="crop" data-img="d1" data-box="0,0,1759,128"></div>
+      <div class="s6__ask"><div class="crop" data-img="d1" data-box="100,840,1250,315"></div><i class="s6__ring"></i></div>
+      <div class="s6__slot">
+        <div class="crop s6__bar" data-img="d1" data-box="0,1640,1759,140"></div>
+        <div class="crop s6__hold" data-img="d1" data-box="40,1185,1690,455"></div>
+        <div class="crop s6__done" data-img="d6" data-box="40,1040,1690,455"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="win win--owner">
+    <p class="win__tag">Owner console</p>
+    <div class="win__body">
+      <div class="crop" data-img="d4" data-box="0,100,740,108"></div>
+      <div class="s6__inbox">
+      <div class="crop s6__card" data-img="d4" data-box="30,860,710,490"></div>
+      <div class="crop s6__reply" data-img="d5" data-box="30,600,710,750"></div>
+      </div>
+    </div>
+  </div>
+
+  <svg class="s6__arcs" viewBox="0 0 1280 720" aria-hidden="true">
+    <defs><marker id="s6-tip" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#2B5FB8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+    <g class="s6__go"><path d="M718 268 Q796 208 872 268" marker-end="url(#s6-tip)"/><text x="796" y="214">approval card</text></g>
+    <g class="s6__back"><path d="M872 404 Q796 464 718 404" marker-end="url(#s6-tip)"/><text x="796" y="486">"1"</text></g>
+  </svg>
+  <div class="chip chip--card" aria-hidden="true"><kubai-icon name="contract" size="20" color="#5393FF"></kubai-icon>A1</div>
+  <div class="chip chip--one" aria-hidden="true">1</div>
+
+  <ol class="s6__steps">
+    <li><b>1</b>The buyer asks for more than this salesperson may give</li>
+    <li><b>2</b>The agent holds the buyer and writes the approval card</li>
+    <li><b>3</b>The approver answers in one word</li>
+  </ol>
+  <p class="s6__ranges">Ranges: quotes, discounts, lead times</p>
+  <p class="s6__demo">Demo data</p>
+
+  <div class="s6__veil"></div>
+  <div class="dash">
+    <p class="dash__head">Owner's overview<span>Demo data</span><span>Concept</span></p>
+    <div class="crop" data-img="e1" data-box="551,328,2257,300"></div>
+    <div class="dash__row">
+      <div class="crop" data-img="e1" data-w="566" data-box="551,650,1410,826"></div>
+      <div class="crop" data-img="e1" data-w="322" data-box="1961,2324,847,870"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 · Next: the loop that makes it self-improving. One draft travels the ring twice; each lap adds a rule to the playbook -->
+<section class="deck-stage deck-stage--content s7" data-slide="7" aria-label="Self-improving loop">
+  <h2 class="slide-title">Next: what the best people do becomes how the whole team and the agent work.</h2>
+  <div class="slide-no">07</div>
+  <p class="s7__tag">Concept</p>
+
+  <div class="s7__disc"></div>
+  <svg class="s7__ring" viewBox="0 0 1280 720" aria-hidden="true">
+    <g class="s7__arc"><defs><linearGradient id="s7g0" gradientUnits="userSpaceOnUse" x1="398.5" y1="258.8" x2="520.8" y2="385.4"><stop offset="0" stop-color="#9CC2FF"/><stop offset="1" stop-color="#2B5FB8"/></linearGradient></defs><path d="M398.5 258.8 A176 176 0 0 1 506.8 348.1" stroke="url(#s7g0)"/><polygon points="526.4,335.8 520.8,385.4 485.6,357.1" fill="#2B5FB8"/></g>
+    <g class="s7__arc"><defs><linearGradient id="s7g1" gradientUnits="userSpaceOnUse" x1="519.2" y1="476.5" x2="392.6" y2="598.8"><stop offset="0" stop-color="#9CC2FF"/><stop offset="1" stop-color="#2B5FB8"/></linearGradient></defs><path d="M519.2 476.5 A176 176 0 0 1 429.9 584.8" stroke="url(#s7g1)"/><polygon points="442.2,604.4 392.6,598.8 420.9,563.6" fill="#2B5FB8"/></g>
+    <g class="s7__arc"><defs><linearGradient id="s7g2" gradientUnits="userSpaceOnUse" x1="301.5" y1="597.2" x2="179.2" y2="470.6"><stop offset="0" stop-color="#9CC2FF"/><stop offset="1" stop-color="#2B5FB8"/></linearGradient></defs><path d="M301.5 597.2 A176 176 0 0 1 193.2 507.9" stroke="url(#s7g2)"/><polygon points="173.6,520.2 179.2,470.6 214.4,498.9" fill="#2B5FB8"/></g>
+    <g class="s7__arc"><defs><linearGradient id="s7g3" gradientUnits="userSpaceOnUse" x1="180.8" y1="379.5" x2="307.4" y2="257.2"><stop offset="0" stop-color="#9CC2FF"/><stop offset="1" stop-color="#2B5FB8"/></linearGradient></defs><path d="M180.8 379.5 A176 176 0 0 1 270.1 271.2" stroke="url(#s7g3)"/><polygon points="257.8,251.6 307.4,257.2 279.1,292.4" fill="#2B5FB8"/></g>
+  </svg>
+  <div class="s7__node" style="left:350px; top:252px"><i></i><span><kubai-icon name="bot-sparkle" size="34" color="#5393FF"></kubai-icon></span></div>
+  <p class="s7__label s7__label--top">Agent drafts</p>
+  <div class="s7__node" style="left:526px; top:428px"><i></i><span><kubai-icon name="user-check" size="34" color="#5393FF"></kubai-icon></span></div>
+  <p class="s7__label s7__label--right">A person edits<br>or approves</p>
+  <div class="s7__node" style="left:350px; top:604px"><i></i><span><kubai-icon name="chart-line" size="34" color="#5393FF"></kubai-icon></span></div>
+  <p class="s7__label s7__label--bottom">Outcome recorded</p>
+  <div class="s7__node" style="left:174px; top:428px"><i></i><span><kubai-icon name="book-plus" size="34" color="#5393FF"></kubai-icon></span></div>
+  <p class="s7__label s7__label--left">Rules<br>updated</p>
+
+  <div class="s7__book">
+    <div class="s7__sheets">
+      <b></b><b></b>
+      <div class="s7__sheet">
+        <em></em>
+        <p><i></i><u style="width:86px"></u></p>
+        <p><i></i><u style="width:66px"></u></p>
+        <p class="s7__row"><i></i><u style="width:80px"></u></p>
+        <p class="s7__row"><i></i><u style="width:58px"></u></p>
+      </div>
+    </div>
+    <p class="s7__name">The company's own<br>playbook</p>
+  </div>
+  <div class="s7__chip"><kubai-icon name="contract" size="22" color="#fff"></kubai-icon></div>
+
+  <div class="s7__say" style="top:222px"><p>An edited draft shapes the next drafts.</p></div>
+  <div class="s7__say" style="top:322px"><p>An approved exception becomes a rule.</p></div>
+  <div class="s7__track">
+    <h3>Two numbers I will track:</h3>
+    <ul>
+      <li>drafts the top salesperson sends unedited</li>
+      <li>time for a new hire to handle orders alone</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 8 · Next: the marketing agent. A real example read left to right: what was given, what AI made, what came back -->
+<section class="deck-stage deck-stage--content s8" data-slide="8" aria-label="Marketing agent">
+  <h2 class="slide-title">Next: the marketing agent makes the content, and records what brings buyers.</h2>
+  <div class="slide-no">08</div>
+
+  <div class="s8__photo" style="left:72px"><img src="assets/shots/p8-product-front.jpg" alt="Product, front"></div>
+  <div class="s8__photo" style="left:240px"><img src="assets/shots/p8-product-back.jpg" alt="Product, back"></div>
+  <b class="s8__plus">+</b>
+  <div class="s8__prompt">
+    <h3><kubai-icon name="typewriter" size="22" color="#5393FF"></kubai-icon>Example prompt</h3>
+    <p><span class="s8__typed"></span><i></i><span class="s8__rest">"Make a short Facebook video for this product. A foreign sound engineer holds it and explains how he uses it at work. In English."</span></p>
+  </div>
+  <svg class="s8__go" viewBox="0 0 1280 720" aria-hidden="true">
+    <defs><linearGradient id="s8g" gradientUnits="userSpaceOnUse" x1="398" y1="0" x2="470" y2="0"><stop offset="0" stop-color="#9CC2FF"/><stop offset="1" stop-color="#2B5FB8"/></linearGradient></defs>
+    <path d="M400 378 L446 378" stroke="url(#s8g)"/><polygon points="442,354 474,378 442,402" fill="#2B5FB8"/>
+  </svg>
+
+  <div class="s8__phone">
+    <div class="s8__screen">
+      <img src="assets/shots/p8-reel-02s.png" alt="">
+      <img src="assets/shots/p8-reel-04s.png" alt="">
+      <img src="assets/shots/measy-reel-frame-12s-stage-two-units.png" alt="">
+    </div>
+    <b></b>
+  </div>
+  <p class="s8__madeh">All made by AI</p>
+  <ul class="s8__made">
+    <li style="top:214px"><span><kubai-icon name="user" size="24" color="#5393FF"></kubai-icon></span>presenter</li>
+    <li style="top:288px"><span><kubai-icon name="subtitles" size="24" color="#5393FF"></kubai-icon></span>captions</li>
+    <li style="top:362px"><span><kubai-icon name="type" size="24" color="#5393FF"></kubai-icon></span>title</li>
+    <li style="top:436px"><span><kubai-icon name="text-size" size="24" color="#5393FF"></kubai-icon></span>post text</li>
+    <li style="top:510px"><span><kubai-icon name="hash" size="24" color="#5393FF"></kubai-icon></span>hashtags</li>
+  </ul>
+  <p class="s8__sum">2 product photos + one plain sentence <b>→</b> a finished product video, ready to post</p>
+
+  <div class="s8__stats">
+    <div class="s8__stat"><span><kubai-icon name="eye" size="26" color="#5393FF"></kubai-icon></span><p class="s8__n" data-to="1.12" data-dec="2" data-suf="M">1.12M</p><p>views</p></div>
+    <div class="s8__stat"><span><kubai-icon name="heart" size="26" color="#5393FF"></kubai-icon></span><p class="s8__n" data-to="11" data-dec="0" data-suf="K">11K</p><p>likes</p></div>
+    <div class="s8__stat"><span><kubai-icon name="message-circle" size="26" color="#5393FF"></kubai-icon></span><p class="s8__n" data-to="494" data-dec="0" data-suf="">494</p><p>comments</p></div>
+    <div class="s8__stat"><span><kubai-icon name="share" size="26" color="#5393FF"></kubai-icon></span><p class="s8__n" data-to="579" data-dec="0" data-suf="">579</p><p>shares</p></div>
+  </div>
+  <p class="s8__src">Posted on Facebook · Measy</p>
+  <p class="s8__note"><b>Today:</b> made with AI tools at my family's factory (a related party). <b>Next:</b> one step inside the product.</p>
+</section>
+
+<!-- 9 · Market: TAM, SAM, target segment, SOM as lenses of water, areas in proportion to company counts -->
+<section class="deck-stage deck-stage--content s9" data-slide="9" aria-label="Market">
+  <h2 class="slide-title">A large base, and exporters already pay for AI.</h2>
+  <div class="slide-no">09</div>
+  <div class="disc disc--tam" data-disc="0"></div>
+  <div class="disc disc--sam" data-disc="1"></div>
+  <div class="disc disc--seg" data-disc="2"></div>
+  <div class="disc disc--som" data-disc="3"></div>
+  <svg class="s9__lines" viewBox="0 0 1280 720" aria-hidden="true">
+    <path data-layer="0" d="M648 344 L570 344"/>
+    <path data-layer="1" d="M648 428 L437 449"/>
+    <path data-layer="2" d="M648 512 L367 610"/>
+    <path data-layer="3" d="M648 596 L342 659"/>
+  </svg>
+
+  <div class="s9__in" data-layer="0" style="top: 248px"><p class="s9__k">TAM</p><p class="s9__v s9__v--xl">HK$15bn</p><p class="s9__u">a year</p></div>
+  <div class="s9__in" data-layer="1" style="top: 448px"><p class="s9__k">SAM</p><p class="s9__v">HK$4.4bn</p><p class="s9__u">a year</p></div>
+
+  <div class="panel">
+  <div class="proof">
+    <p class="proof__k"><kubai-icon name="sparkles" size="26" color="#5393FF"></kubai-icon>Already paying for AI</p>
+    <p class="proof__n">~<span data-count="15700">15,700</span></p>
+    <p class="proof__d">exporters subscribe to Made-in-China.com's AI sales assistant</p>
+    <p class="proof__d">RMB 72.8m cash revenue, Jan–Sep 2026</p>
+  </div>
+
+  <ol class="layers">
+    <li data-layer="0"><p class="layers__k">TAM</p><p class="layers__n">≈<span data-count="585000">585,000</span> companies</p><p class="layers__d">exporters in China</p></li>
+    <li data-layer="1"><p class="layers__k">SAM</p><p class="layers__n">≈<span data-count="170000">170,000</span> companies</p><p class="layers__d">exporters in the Greater Bay Area and Hong Kong</p></li>
+    <li data-layer="2"><p class="layers__k">Target segment</p><p class="layers__n">≈<span data-count="12600">12,600</span> companies · HK$330m a year</p><p class="layers__d">small exporters with their own factory, selling over chat apps</p></li>
+    <li data-layer="3"><p class="layers__k">SOM, year 3</p><p class="layers__n">≈<span data-count="120">120</span> companies · HK$3.1m a year</p><p class="layers__d">about 1% of the segment</p></li>
+  </ol>
+  </div>
+
+  <p class="s9__foot">Units: companies; HK$ = subscription revenue per year · Assumes about HK$26,000 (RMB 24,000) per company a year</p>
+</section>
+
+<!-- 10 · Today: two tools, and two things outside any tool; with Bayflow all four in one window. The four pieces fly across -->
+<section class="deck-stage deck-stage--content s10" data-slide="10" aria-label="Today and with Bayflow Lab">
+  <h2 class="slide-title">Today: several tools stitched together. The price list and the approval rules sit outside them.</h2>
+  <div class="slide-no">10</div>
+
+  <h3 class="s10__h" style="left:72px">Today</h3>
+  <svg class="s10__lines" viewBox="0 0 1280 720" aria-hidden="true"><path d="M176 430 C220 430 214 300 258 300"/><path d="M176 430 C220 430 214 376 258 376"/><path class="dash" d="M176 430 C220 430 214 498 258 498"/><path class="dash" d="M176 430 C220 430 214 584 258 584"/>
+    <path class="go" d="M618 430 L686 430 M670 416 L686 430 L670 444"/>
+  </svg>
+  <div class="s10__sales"><kubai-icon name="user" size="46" color="#5393FF"></kubai-icon><em>The salesperson switches between them</em></div>
+  <p class="s10__cap" style="top:232px">Separate tools</p>
+  <p class="s10__cap" style="top:426px">Not in any tool</p>
+  <div class="s10__tool s10__tool--tool" style="top:268px"><span><kubai-icon name="languages" size="28" color="#5393FF"></kubai-icon></span><div>A translator app</div></div>
+  <div class="s10__tool s10__tool--tool" style="top:344px"><span><kubai-icon name="inbox" size="28" color="#5393FF"></kubai-icon></span><div>A shared inbox</div></div>
+  <div class="s10__tool s10__tool--out" style="top:462px"><span><kubai-icon name="table" size="28" color="#5393FF"></kubai-icon></span><div>A price spreadsheet<em>a separate file</em></div></div>
+  <div class="s10__tool s10__tool--rule" style="top:548px"><span><kubai-icon name="brain" size="28" color="#5393FF"></kubai-icon></span><div>Approval rules<em>only in the owner's head</em></div></div>
+
+  <h3 class="s10__h" style="left:728px">With Bayflow Lab</h3>
+  <div class="s10__win">
+    <p class="s10__bar"><img src="assets/whatsapp-app-icon.png" alt="WhatsApp">Inside the WhatsApp the team already uses</p>
+    <ul>
+      <li><span><kubai-icon name="languages" size="30" color="#5393FF"></kubai-icon></span>Translation</li>
+      <li><span><kubai-icon name="messages" size="30" color="#5393FF"></kubai-icon></span>Drafted replies and quotes</li>
+      <li><span><kubai-icon name="table" size="30" color="#5393FF"></kubai-icon></span>The price list</li>
+      <li><span><kubai-icon name="key" size="30" color="#5393FF"></kubai-icon></span>Who may approve what</li>
+    </ul>
+  </div>
+  <i class="s10__fly"><kubai-icon name="languages" size="24" color="#fff"></kubai-icon></i>
+  <i class="s10__fly"><kubai-icon name="inbox" size="24" color="#fff"></kubai-icon></i>
+  <i class="s10__fly"><kubai-icon name="table" size="24" color="#fff"></kubai-icon></i>
+  <i class="s10__fly"><kubai-icon name="brain" size="24" color="#fff"></kubai-icon></i>
+</section>
+
+<!-- 11 · Business model: three plans as three rising steps, two things charged separately -->
+<section class="deck-stage deck-stage--content s11" data-slide="11" aria-label="Business model">
+  <h2 class="slide-title">One product, a fixed monthly subscription, three plans.</h2>
+  <div class="slide-no">11</div>
+
+  <div class="s11__stairs">
+    <div class="s11__plan s11__plan--1" style="left:20px; height:232px"><h3>Plus</h3><p>Accounts<span><i class="on"></i><i class=""></i><i class=""></i></span></p><p>Permissions<span><i class="on"></i><i class=""></i><i class=""></i></span></p><p>Features<span><i class="on"></i><i class=""></i><i class=""></i></span></p></div>
+    <div class="s11__plan s11__plan--2" style="left:266px; height:326px"><h3>Pro</h3><p>Accounts<span><i class="on"></i><i class="on"></i><i class=""></i></span></p><p>Permissions<span><i class="on"></i><i class="on"></i><i class=""></i></span></p><p>Features<span><i class="on"></i><i class="on"></i><i class=""></i></span></p></div>
+    <div class="s11__plan s11__plan--3" style="left:512px; height:420px"><h3>Ultra</h3><p>Accounts<span><i class="on"></i><i class="on"></i><i class="on"></i></span></p><p>Permissions<span><i class="on"></i><i class="on"></i><i class="on"></i></span></p><p>Features<span><i class="on"></i><i class="on"></i><i class="on"></i></span></p></div>
+  </div>
+  <p class="s11__base">Fixed monthly subscription · the whole team included</p>
+
+  <h3 class="s11__h">Charged separately</h3>
+  <div class="s11__extra" style="top:214px"><span><kubai-icon name="puzzle" size="30" color="#5393FF"></kubai-icon></span><h4>Custom work for one company</h4><p>a paid add-on</p></div>
+  <div class="s11__extra" style="top:432px"><span><kubai-icon name="rocket" size="30" color="#5393FF"></kubai-icon></span><h4>Onboarding</h4><p>a paid service, waived for the first ten companies</p></div>
+</section>
+
+<!-- 12 · Why me (1): two products I built flow into Bayflow Lab's agent -->
+<section class="deck-stage deck-stage--content s12" data-slide="12" aria-label="Why me, 1">
+  <h2 class="slide-title">Why me (1): I have built products from 0 <svg class="s12__to" viewBox="0 0 56 28" aria-label="to"><path d="M3 14 H49 M38 4 L50 14 L38 24"/></svg> 1, and people switched to them.</h2>
+  <div class="slide-no">12</div>
+
+  <div class="s12__shot" style="top:172px"><div class="crop2 " style="width:250px; height:166px"><img src="assets/shots/p12-flowtype.png" alt="" style="width:389.4px; left:-69.7px; top:-247.2px"></div></div>
+  <div class="s12__made" style="top:166px">
+    <p class="s12__k">Flowtype · built alone</p>
+    <p class="s12__n"><span data-to="1000000">1,000,000</span>+</p>
+    <p>words dictated with it, by me</p>
+    <p>10 colleagues switched from a paid tool</p>
+  </div>
+  <div class="s12__shot" style="top:404px"><div class="crop2 " style="width:250px; height:167px"><img src="assets/shots/p12-jevchat.png" alt="" style="width:429.7px; left:-7.2px; top:-143.6px"></div></div>
+  <div class="s12__made" style="top:398px">
+    <p class="s12__k">jev-chat · co-creator</p>
+    <p class="s12__n"><span data-to="8400">8,400</span>+</p>
+    <p>stars on GitHub</p>
+    <p>overseas version live in 11 days</p>
+  </div>
+
+  <div class="s12__wipe"><svg viewBox="680 190 250 360" width="250" height="360" aria-hidden="true">
+    <defs><linearGradient id="s12g" gradientUnits="userSpaceOnUse" x1="690" y1="0" x2="920" y2="0"><stop offset="0" stop-color="#BBD5FF"/><stop offset="1" stop-color="#2B5FB8"/></linearGradient></defs>
+    <path id="s12a" d="M690 255 C810 255 800 334 924 334"/><path id="s12b" d="M690 487 C810 487 800 376 924 376"/>
+  </svg></div>
+  <i class="s12__dot"></i><i class="s12__dot"></i><i class="s12__dot"></i><i class="s12__dot"></i><i class="s12__dot"></i><i class="s12__dot"></i>
+  <p class="s12__same">my track record</p>
+
+  <div class="s12__halo"></div>
+  <img class="s12__icon" src="assets/bayflow-app-icon.webp" alt="Bayflow Lab">
+  <div class="s12__now">
+    <h3>Bayflow Lab's agent</h3>
+    <p>Running on real WhatsApp today</p>
+    <p>Built by the same founder, with AI agents</p>
+  </div>
+</section>
+
+<!-- 13 · Why me (2): the founder, and the three places the first customers come from -->
+<section class="deck-stage deck-stage--content s13" data-slide="13" aria-label="Why me, 2">
+  <h2 class="slide-title">Why me (2): I know these companies from the inside.</h2>
+  <div class="slide-no">13</div>
+
+  <div class="s13__photo"><img src="assets/shots/p13-founder.jpg" alt="Sheng Gao"></div>
+  <p class="s13__name">Sheng Gao · Founder</p>
+
+  <div class="s13__wipe"><svg viewBox="404 190 152 340" width="152" height="340" aria-hidden="true"><path d="M410 356 C480 356 470 224 546 224"/><path class="tip" d="M534 215 L548 224 L534 233"/><path d="M410 356 C480 356 470 356 546 356"/><path class="tip" d="M534 347 L548 356 L534 365"/><path d="M410 356 C480 356 470 488 546 488"/><path class="tip" d="M534 479 L548 488 L534 497"/></svg></div>
+  <h3 class="s13__h">Where the first customers come from</h3>
+  <div class="s13__card" style="top:166px"><span><kubai-icon name="factory" size="32" color="#5393FF"></kubai-icon></span><div><h4>My family's factory</h4><p>the first pilot: real quotes and approvals, first-hand</p></div></div>
+  <div class="s13__card" style="top:298px"><span><kubai-icon name="users" size="32" color="#5393FF"></kubai-icon></span><div><h4>My own network</h4><p>friends who run export businesses, or whose families do, in Shenzhen</p></div></div>
+  <div class="s13__card" style="top:430px"><span><kubai-icon name="map-pin" size="32" color="#5393FF"></kubai-icon></span><div><h4>Direct outreach</h4><p>visiting companies in Shenzhen and Hong Kong in person</p></div></div>
+  <div class="s13__foot">
+    <p><kubai-icon name="graduation-cap" size="28" color="#5393FF"></kubai-icon>Imperial College London · UCL</p>
+    <p>Solo founder, building with AI agents</p>
+  </div>
+</section>
+
+<!-- 14 · The ask: a rising flow as the timeline, three stations, then beyond the grant -->
+<section class="deck-stage deck-stage--content s14" data-slide="14" aria-label="12 months and the ask">
+  <h2 class="slide-title">12 months, HK$150,000: build the full product, then prove it with three pilots.</h2>
+  <div class="slide-no">14</div>
+  <canvas class="flow-canvas" id="flow-14"></canvas>
+
+  <div class="s14__st s14__st--now" data-x="140"><span><kubai-icon name="circle-check" size="36" color="#5393FF"></kubai-icon></span>
+    <div class="s14__txt"><h3>TODAY</h3><p>Built, running on real WhatsApp</p><p>First design partner: my family's company (a related party)</p></div></div>
+  <div class="s14__st" data-x="620"><span><kubai-icon name="package" size="32" color="#5393FF"></kubai-icon></span>
+    <div class="s14__txt"><h3>MONTHS 1–6<b>HK$75,000</b></h3><p>Version 1.0 of the complete product</p><p>Design partner uses it daily, 4 weeks</p></div></div>
+  <div class="s14__st s14__st--r" data-x="1130"><span><kubai-icon name="flag" size="32" color="#5393FF"></kubai-icon></span>
+    <div class="s14__txt"><h3>MONTHS 7–12<b>HK$75,000</b></h3><p>3 pilots, at least 2 unrelated</p><p>1 paid contract</p><p>20 interviews</p></div></div>
+
+  <p class="s14__y3">Year 3: ≈120 paying companies</p>
+  <ul class="s14__hk">
+    <li>Company registered in Hong Kong within 2 weeks of approval</li>
+    <li>An office in HSITP within 2 months</li>
+    <li>Full-time in Hong Kong from June 2027</li>
+  </ul>
+</section>
+
+<!-- 15 · Appendix 1: five levels, each earned by trust (for questions) -->
+<section class="deck-stage deck-stage--content a1" data-slide="15" aria-label="Appendix 1: five levels">
+  <h2 class="slide-title">Appendix · Five levels, each one earned by trust.</h2>
+  <div class="slide-no">A1</div>
+  <div class="a1__row a1__row--later" style="top:150px"><b>5</b><div><h3>The company's entry to AI</h3><p>with trust, data and the playbook in place, on to other parts of the company</p></div><aside><h4>Long term</h4><p>only after the first four levels</p></aside></div>
+  <p class="a1__by" style="top:224px">↑ earned when the whole flow's data and playbook are there, and the owner trusts it</p>
+  <div class="a1__row a1__row--next" style="top:250px"><b>4</b><div><h3>One flow</h3><p>marketing, sales and deal documents connected; one entry for the whole team</p></div><aside><h4>Stage 2</h4><p>marketing agent, deal documents</p></aside></div>
+  <p class="a1__by" style="top:324px">↑ earned when the sales side really earns the owner more money</p>
+  <div class="a1__row a1__row--run" style="top:350px"><b>3</b><div><h3>Gets better with use</h3><p>what the best people do becomes how the whole company works</p></div><aside><h4>Stage 1 · next</h4><p>the self-improving loop</p></aside></div>
+  <p class="a1__by" style="top:424px">↑ earned when what the owner approves, what the best salesperson edits, and every outcome are recorded</p>
+  <div class="a1__row a1__row--run" style="top:450px"><b>2</b><div><h3>Does it for you</h3><p>replies and quotes inside the authorised range; beyond it, asks the owner</p></div><aside><h4>Stage 1 · running today</h4><p>the sales agent on real WhatsApp</p></aside></div>
+  <p class="a1__by" style="top:524px">↑ earned when the price list and the approval ranges are handed to it</p>
+  <div class="a1__row a1__row--now0" style="top:550px"><b>1</b><div><h3>Tool</h3><p>helps one person do one action</p></div><aside><h4>What small exporters use today</h4><p>translators, inboxes, content tools</p></aside></div>
+</section>
+
+<!-- 16 · Appendix 2: the marketing agent, eight steps from one sentence to what is kept (for questions) -->
+<section class="deck-stage deck-stage--content a2" data-slide="16" aria-label="Appendix 2: the marketing agent">
+  <h2 class="slide-title">Appendix · The marketing agent, in eight steps.</h2>
+  <div class="slide-no">A2</div>
+  <p class="a2__tag">Concept</p>
+  <div class="a2__step a2__step--own" style="left:72px; top:158px"><em class="own">Owner</em><b>1</b><h3>The owner says what he wants</h3><p>in plain words; a few reference images are enough</p></div>
+  <i class="a2__go" style="left:343px; top:218px"></i>
+  <div class="a2__step a2__step--agt" style="left:362px; top:158px"><em class="agt">Agent</em><b>2</b><h3>The agent proposes a few directions</h3><p>a 70-point version: right for export, good enough to use</p></div>
+  <p class="a2__note" style="left:366px; top:308px">References: hits on each platform, category templates, the company's past winners</p>
+  <i class="a2__go" style="left:633px; top:218px"></i>
+  <div class="a2__step a2__step--own" style="left:652px; top:158px"><em class="own">Owner</em><b>3</b><h3>The owner picks one</h3><p>everyone edits the same thing, no guessing</p></div>
+  <p class="a2__note" style="left:656px; top:308px">Not happy? The agent asks what is wrong, then proposes again</p>
+  <i class="a2__go" style="left:923px; top:218px"></i>
+  <div class="a2__step a2__step--ppl" style="left:942px; top:158px"><em class="ppl">Content person</em><b>4</b><h3>The content person improves it</h3><p>in the marketing workspace, from 70 points to ready to post</p></div>
+  <p class="a2__note" style="left:946px; top:308px">Images, posters, launch videos, presenter videos</p>
+  <div class="a2__step a2__step--agt" style="left:72px; top:394px"><em class="agt">Agent</em><b>5</b><h3>The agent suggests how to post</h3><p>which platform, when, with what caption</p></div>
+  <i class="a2__go" style="left:343px; top:454px"></i>
+  <div class="a2__step a2__step--out" style="left:362px; top:394px"><em class="out">Outside</em><b>6</b><h3>Posted: buyers see it, enquiries come in</h3><p>cannot rely on paid traffic every time</p></div>
+  <p class="a2__note" style="left:366px; top:544px">Enquiries go to the sales agent: reply, quote, close</p>
+  <i class="a2__go" style="left:633px; top:454px"></i>
+  <div class="a2__step a2__step--agt" style="left:652px; top:394px"><em class="agt">Agent</em><b>7</b><h3>Attribution</h3><p>what brought enquiries and orders, and whether the next product can copy it</p></div>
+  <p class="a2__note" style="left:656px; top:544px">Deal outcomes come back here, also when a post gets no traction</p>
+  <i class="a2__go" style="left:923px; top:454px"></i>
+  <div class="a2__step a2__step--agt" style="left:942px; top:394px"><em class="agt">Agent</em><b>8</b><h3>Kept</h3><p>what worked becomes examples and templates; what did not is dropped</p></div>
+  <p class="a2__note" style="left:946px; top:544px">Feeds step 2: the next directions are more accurate</p>
+  <p class="a2__legend"><span class="own"></span>the person who decides<span class="ppl"></span>the content person<span class="agt"></span>the agent<span class="out"></span>outside: buyers and platforms</p>
+</section>
+
+</main>
+
+<script type="module">
+import { mountFlow, STATIONS, curveY } from './js/flow.js';
+
+const s4 = document.querySelector('.s4');
+const LABEL_TOP = 446;                                   // stage y where every label block starts
+s4.querySelectorAll('.station').forEach((el) => {
+  const x = STATIONS[el.dataset.station], y = curveY(x);
+  el.style.left = x + 'px'; el.style.top = y + 'px';
+  const stem = el.querySelector('.station__stem');
+  stem.style.top = '38px'; stem.style.height = Math.max(0, LABEL_TOP - y - 52) + 'px';
+  el.querySelector('.station__label').style.top = (LABEL_TOP - y) + 'px';
+});
+// Kubai Icons, shapes as drawn. ?tint=light previews a paler blue than the library's original #5393FF.
+const tint = new URLSearchParams(location.search).get('tint') === 'light' ? '#7FAEFF' : '#5393FF';
+s4.querySelectorAll('kubai-icon').forEach((el) => el.setAttribute('color', tint));
+const flow = mountFlow(document.getElementById('flow-04'), s4);
+
+const still = new URLSearchParams(location.search).has('still');
+s4.addEventListener('slide:enter', () => {
+  if (still) return;
+  gsap.fromTo(flow.uProgress, { value: 0 }, { value: 1, duration: 2.2, ease: 'power2.inOut' });
+  gsap.fromTo(s4.querySelectorAll('.station'), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: .7, ease: 'power2.out', stagger: .32, delay: .35 });
+});
+</script>
+<script type="module" src="js/slide-02.js?v=1124c"></script>
+<script type="module" src="js/slide-03.js?v=1124c"></script>
+<script type="module" src="js/slide-05.js?v=1124c"></script>
+<script type="module" src="js/slide-06.js?v=1124c"></script>
+<script type="module" src="js/slide-07.js?v=1124c"></script>
+<script type="module" src="js/slide-09.js?v=1124c"></script>
+<script type="module" src="js/slide-08.js?v=1124c"></script>
+<script type="module" src="js/slide-10.js?v=1124c"></script>
+<script type="module" src="js/slide-11.js?v=1124c"></script>
+<script type="module" src="js/slide-12.js?v=1124c"></script>
+<script type="module" src="js/slide-13.js?v=1124c"></script>
+<script type="module" src="js/slide-14.js?v=1124c"></script>
+<script type="module" src="js/slide-appendix.js?v=1124c"></script>
+<script defer src="js/deck.js?v=1124c"></script>
+</body>
+</html>

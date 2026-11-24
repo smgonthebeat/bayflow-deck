@@ -1,0 +1,40 @@
+/* Bayflow Lab · SPIN deck template · v2 · 2026-11-24. Colour values are the design system's tokens. */
+@import url("vendor/fonts/fonts.css"); /* local copy of Source Serif 4, so the deck runs offline (the template loaded it from Google Fonts) */
+:root {
+  --ink: #0F1D3D; --navy: #12234B; --link: #2B5FB8; --sky: #7EB4F0; --paper: #FAF8F4; --white: #FFFFFF;
+  --line: #E6E1D8; --ink-muted: #55607A; --signal: #C8642F; --radius-sm: 6px; --radius-md: 10px;
+}
+/* ==========================================================================
+   Bayflow Lab · Deck template (SPIN deck) · v2, 2026-11-24.
+   Two things only: the cover and the background every other slide sits on.
+   Designed at 1280×720; scale the stage with transform: scale(width / 1280).
+   One .deck-stage per slide.
+   ========================================================================== */
+.deck-stage {
+  --deck-veil-center: .70;          /* white over the middle of the painting on content slides */
+  --deck-veil-edge: 0;              /* white at the four edges: none, the painting as supplied */
+  --deck-ship-fade: 0;              /* haze over the ship only, for slides where words sit on it (founder, 2026-11-24) */
+  position: relative; width: 1280px; height: 720px; overflow: hidden; box-sizing: border-box;
+  font-family: "Source Serif 4", "Noto Serif SC", serif; color: var(--ink, #0F1D3D);
+  -webkit-font-smoothing: antialiased;
+  background: url(assets/key-visual_H1_4k.webp) center / cover no-repeat;
+}
+.deck-stage *, .deck-stage *::before, .deck-stage *::after { box-sizing: border-box; }
+.deck-stage--content::before {      /* content slides: light in the middle, fading to the untouched painting at the edges */
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse 21% 19% at 82% 82%,
+    rgba(222,233,247,var(--deck-ship-fade)) 0%, rgba(222,233,247,var(--deck-ship-fade)) 55%, rgba(222,233,247,0) 100%),
+    radial-gradient(ellipse 78% 72% at 50% 42%,
+    rgba(250,248,244,var(--deck-veil-center)) 0%, rgba(250,248,244,var(--deck-veil-center)) 35%,
+    rgba(250,248,244,var(--deck-veil-edge)) 100%);
+}
+.deck-stage--content > * { position: relative; }   /* slide content sits above the veil */
+
+/* cover (slide 1): the painting as supplied, no veil */
+.deck-cover { position: absolute; left: 72px; top: 56px; display: flex; flex-direction: column; align-items: flex-start; gap: 14px; }
+.deck-cover__lockup { display: flex; align-items: center; gap: 22px; }
+.deck-cover__lockup img { width: 112px; height: 112px; display: block; }
+.deck-cover__name { margin: 0; font-size: 84px; line-height: 1; font-weight: 600; letter-spacing: -.01em; }
+.deck-cover__tagline { margin: 0; font-size: 38px; line-height: 1.1; }
+.deck-cover__desc { margin: 10px 0 0; width: 540px; font-size: 19px; line-height: 1.5; }
+.deck-cover__who { margin: 0; font-size: 16px; line-height: 1.4; font-weight: 600; }
