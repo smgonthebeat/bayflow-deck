@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Bayflow Lab · SPIN deck</title>
 <meta name="robots" content="noindex">
-<link rel="stylesheet" href="deck.css?v=1124c">
-<link rel="stylesheet" href="css/slides.css?v=1124c">
+<link rel="stylesheet" href="deck.css?v=1124d">
+<link rel="stylesheet" href="css/slides.css?v=1124d">
 <script type="importmap">
 { "imports": { "three": "./vendor/three/build/three.module.js", "three/addons/": "./vendor/three/addons/" } }
 </script>
@@ -538,6 +538,36 @@
   <p class="a2__legend"><span class="own"></span>the person who decides<span class="ppl"></span>the content person<span class="agt"></span>the agent<span class="out"></span>outside: buyers and platforms</p>
 </section>
 
+<!-- 17 · Appendix 3: three-year financial projection (the SPIN form asks the deck to include one; numbers approved, D503) -->
+<section class="deck-stage deck-stage--content a3" data-slide="17" aria-label="Appendix 3: three-year financial projection">
+  <h2 class="slide-title">Appendix · Three-year financial projection.</h2>
+  <div class="slide-no">A3</div>
+  <p class="a3__tag">Estimates</p>
+
+  <div class="a3__card">
+    <table>
+      <thead>
+        <tr><th>HK$</th><th>Year 1</th><th>Year 2</th><th>Year 3</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Paying companies at year end</td><td>1</td><td>30</td><td>120</td></tr>
+        <tr class="a3__key"><td>Subscription revenue in the year</td><td>≈10,000</td><td>≈400,000</td><td>≈1,950,000</td></tr>
+        <tr><td>Annualised subscription revenue at year end</td><td>≈26,000</td><td>≈780,000</td><td>≈3,100,000</td></tr>
+        <tr><td>Running cost of serving customers</td><td>minimal</td><td>≈60,000</td><td>≈300,000</td></tr>
+        <tr><td>Operating costs</td><td>150,000</td><td>≈450,000</td><td>≈900,000</td></tr>
+        <tr class="a3__key"><td>Result for the year</td><td class="a3__neg">≈ −140,000</td><td class="a3__neg">≈ −110,000</td><td class="a3__pos">≈ +750,000</td></tr>
+        <tr class="a3__src"><td>Funded by</td><td>SPIN grant, HK$150,000</td><td>Revenue and second-year funding</td><td>Revenue</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ul class="a3__notes">
+    <li><b>Revenue:</b> about HK$26,000 per company a year, counted on the average number of paying companies in each year (about 15 in year 2, about 75 in year 3). Subscription only; onboarding and custom work are not counted.</li>
+    <li><b>Running cost:</b> about HK$4,000 per company a year for model usage and servers, the upper end of today's estimate. Gross margin about 85%.</li>
+    <li><b>Operating costs:</b> year 1 is the milestone budget. Years 2 and 3 cover the office, servers and AI tools, company secretary and audit, marketing, and the founder's living costs.</li>
+  </ul>
+</section>
+
 </main>
 
 <script type="module">
@@ -564,19 +594,19 @@ s4.addEventListener('slide:enter', () => {
   gsap.fromTo(s4.querySelectorAll('.station'), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: .7, ease: 'power2.out', stagger: .32, delay: .35 });
 });
 </script>
-<script type="module" src="js/slide-02.js?v=1124c"></script>
-<script type="module" src="js/slide-03.js?v=1124c"></script>
-<script type="module" src="js/slide-05.js?v=1124c"></script>
-<script type="module" src="js/slide-06.js?v=1124c"></script>
-<script type="module" src="js/slide-07.js?v=1124c"></script>
-<script type="module" src="js/slide-09.js?v=1124c"></script>
-<script type="module" src="js/slide-08.js?v=1124c"></script>
-<script type="module" src="js/slide-10.js?v=1124c"></script>
-<script type="module" src="js/slide-11.js?v=1124c"></script>
-<script type="module" src="js/slide-12.js?v=1124c"></script>
-<script type="module" src="js/slide-13.js?v=1124c"></script>
-<script type="module" src="js/slide-14.js?v=1124c"></script>
-<script type="module" src="js/slide-appendix.js?v=1124c"></script>
-<script defer src="js/deck.js?v=1124c"></script>
+<script type="module" src="js/slide-02.js?v=1124d"></script>
+<script type="module" src="js/slide-03.js?v=1124d"></script>
+<script type="module" src="js/slide-05.js?v=1124d"></script>
+<script type="module" src="js/slide-06.js?v=1124d"></script>
+<script type="module" src="js/slide-07.js?v=1124d"></script>
+<script type="module" src="js/slide-09.js?v=1124d"></script>
+<script type="module" src="js/slide-08.js?v=1124d"></script>
+<script type="module" src="js/slide-10.js?v=1124d"></script>
+<script type="module" src="js/slide-11.js?v=1124d"></script>
+<script type="module" src="js/slide-12.js?v=1124d"></script>
+<script type="module" src="js/slide-13.js?v=1124d"></script>
+<script type="module" src="js/slide-14.js?v=1124d"></script>
+<script type="module" src="js/slide-appendix.js?v=1124d"></script>
+<script defer src="js/deck.js?v=1124d"></script>
 </body>
 </html>
